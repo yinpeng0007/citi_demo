@@ -1,0 +1,22 @@
+<div *ngIf="currentCard != null" id="result-wrapper">
+  <div id="title">Request Submit Successfully!</div>
+  <div class="result-item">
+    <span class="label">Transaction Card</span>
+    <span class="fr">{{currentCard.cardId}}</span>
+  </div>
+  <div class="result-item">
+    <span class="label">Increase Limit To</span>
+    <span class="fr">{{currentCard.currentLimit}}</span>
+  </div>
+  <div class="result-item">
+    <span class="label">Request Submit Date</span>
+    <span class="fr">{{currentCard.requestTime}}</span>
+  </div>
+  <div id="back-button-wrapper">
+    <button nz-button class="submit-button" (click)="goBack()" [nzType]="'primary'">BACK</button>
+  </div>
+</div>
+
+
+
+

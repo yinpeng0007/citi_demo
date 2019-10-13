@@ -1,0 +1,39 @@
+<div>
+  <div id="card-select-wrapper">
+    <div>
+      <nz-select id="card-select" [(ngModel)]="selectedCard" (ngModelChange)="cardChange($event)" nzAllowClear nzPlaceHolder="Choose">
+        <nz-option *ngFor="let card of cardList" [nzValue]="card" [nzLabel]="card.type"></nz-option>
+      </nz-select>
+    </div>
+    <div>
+      <span *ngIf="selectedCard != null" id="card-id">{{selectedCard.cardId}}</span>
+    </div>
+  </div>
+
+  <div id="card-limit-wrapper">
+    <div *ngIf="selectedCard != null">
+      <div class="limit-tips">Available Limit</div>
+      <div id="card-limit">${{selectedCard.availableLimit}}</div>
+    </div>
+  </div>
+
+
+  <div id="card-limit-increase-wrapper">
+    <div *ngIf="selectedCard != null">
+      <div class="increase-tips card-limit-increase-item">Limit Increase</div>
+      <div class="card-limit-increase-item">
+        <span>Maximum Increase Amount</span>
+        <span class="card-increase-right">${{selectedCard.maxLimit}}</span>
+      </div>
+      <div id="card-increase" class="card-limit-increase-item">
+        <span>Increase Limit To</span>
+        <nz-input-group class="card-increase-right card-increase-to" nzAddOnBefore="$">
+          <input type="text" nz-input [(ngModel)]="increaseTo" />
+        </nz-input-group>
+      </div>
+      <div id="submit-button-wrapper">
+        <button nz-button class="submit-button" (click)="submit()" [nzType]="'primary'">SUBMIT</button>
+      </div>
+    </div>
+  </div>
+</div>
